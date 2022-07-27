@@ -2,6 +2,7 @@ class PlanetsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
+    @planets = Planet.all
   end
 
   def new
