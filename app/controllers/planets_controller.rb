@@ -6,12 +6,15 @@ class PlanetsController < ApplicationController
   end
 
   def new
+    @planet = Planet.new
   end
 
   def create
+    @planet = Planet.new(planet_params)
   end
 
   def show
+    @planet = Planet.find(params[:id])
   end
 
   def edit
@@ -21,5 +24,11 @@ class PlanetsController < ApplicationController
   end
 
   def destroy
+    @planet = Planet.destroy
+    redirect_to planets_path
+  end
+
+  def planet_params
+    params.require(:planet).permit(:name, :galaxy, :price, :size, :temperature, :pressure)
   end
 end
