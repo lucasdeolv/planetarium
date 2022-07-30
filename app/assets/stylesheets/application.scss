@@ -11,3 +11,19 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+body {
+  background-image: image-url("interestellar.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  background-position: center;
+  height: 100vh;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  &:hover {
+    color: white;
+  }
+}
