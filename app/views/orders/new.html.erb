@@ -1,0 +1,5 @@
+<h1>Do your want to buy <%= @planet.name %> for <%= @planet.price %> dollars?</h1>
+<%= simple_form_for [@planet, @order] do |f| %>
+  <%= f.submit 'Yes', class: 'btn btn-primary'%>
+<% end %>
+<%= link_to 'No', planet_path(@planet), class: 'btn btn-primary'  %>
