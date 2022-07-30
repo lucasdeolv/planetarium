@@ -25,6 +25,7 @@ class PlanetsController < ApplicationController
   end
 
   def update
+    @planet = Planet.find(params[:id])
     if @planet.update(planet_params)
       redirect_to planet_path(@planet)
     else
@@ -33,7 +34,8 @@ class PlanetsController < ApplicationController
   end
 
   def destroy
-    @planet = Planet.destroy
+    @planet = Planet.find(params[:id])
+    @planet.destroy
     redirect_to planets_path
   end
 
