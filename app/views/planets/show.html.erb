@@ -1,4 +1,6 @@
+<div class="container">
 <h1><%= @planet.name %></h1>
+<<<<<<< HEAD
 <img src="https://source.unsplash.com/random/?planet" class="w-25 h-50">
 <ul>
 <li>Galaxy: <%=@planet.galaxy%></li>
@@ -7,7 +9,21 @@
 <li>Temperature: <%=@planet.temperature%> degrees celsius </li>
 <li>Pressure: <%=@planet.pressure%> atm</li>
 </ul>
+=======
+  <ul>
+    <li>Galaxy: <%=@planet.galaxy%></li>
+    <li>Price: <%=@planet.price%> dollars</li>
+    <li>Size: <%=@planet.size%> km</li>
+    <li>Temperature: <%=@planet.temperature%> degrees celsius </li>
+    <li>Pressure: <%=@planet.pressure%> atm</li>
+  </ul>
+>>>>>>> master
 <%= link_to 'Buy Planet', new_planet_order_path(@planet), class: 'btn btn-primary'  %>
 <h1>Planet: <%= @planet.name %></h1>
-<%= link_to 'Delete Planet',planet_path(@planet), method: :delete, class: 'btn btn-danger' %>
-<%= link_to 'Edit Planet', edit_planet_path(@planet), class: 'btn btn-warning' %>
+<% if policy(@planet).edit? %>
+  <%= link_to 'Edit Planet', edit_planet_path(@planet), class: 'btn btn-warning' %>
+<% end %>
+
+<% if policy(@planet).destroy? %>
+  <%= link_to 'Delete Planet',planet_path(@planet), method: :delete, class: 'btn btn-danger' %>
+<% end %>
