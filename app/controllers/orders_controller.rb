@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @planet = Planet.find(params[:planet_id])
+    skip_authorization
   end
 
   def create
@@ -10,6 +11,7 @@ class OrdersController < ApplicationController
     @planet = Planet.find(params[:planet_id])
     @order.planet = @planet
     if @order.save
+      skip_authorization
       redirect_to planets_path
     else
       render :new
@@ -18,6 +20,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    skip_authorization
   end
 
   def order_params
