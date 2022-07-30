@@ -12,9 +12,8 @@
 @import "components/index";
 @import "pages/index";
 body {
+  background-image: image-url("stars-wpp.jpg");
   color: white;
-  background-image: image-url("interestellar.jpg");
-  background-repeat: no-repeat;
   background-size: cover;
   width: 100vw;
   background-position: center;
@@ -22,9 +21,11 @@ body {
 }
 
 a {
-  color: white;
   text-decoration: none;
-  &:hover {
-    color: white;
-  }
+}
+
+h1 {
+  color: white;
+  margin-bottom: 40px;
+  margin-top: 10px;
 }

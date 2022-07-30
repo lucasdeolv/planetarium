@@ -1,10 +1,27 @@
 <div class="container">
-  <h1>Planets on Sale</h1>
-  <ul>
-    <% @planets.each do |planet| %>
-      <li><%= link_to planet.name, planet_path(planet) %></li>
+<h1>Planets on Sale</h1>
+
+<div class="cards">
+  <% @planets.each do |planet| %>
+    <%= link_to planet_path(planet) do %>
+      <div class="card-trip">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= planet.name %></h2>
+            <%# <p>Short description here!</p> %>
+          </div>
+          <h2 class="card-trip-pricing"><%= planet.price %></h2>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        </div>
+      </div>
     <% end %>
-    <%= link_to 'Create Planet', new_planet_url, class: 'btn btn-primary'  %>
-  </ul>
-  <%# <a href="..." class="btn btn-danger">Click me</a> %>
+  <% end %>
+</div>
+<br>
+<%= link_to 'Create Planet', new_planet_url, class: 'btn btn-primary'  %>
+
+
+
+<%# <a href="..." class="btn btn-danger">Click me</a> %>
 </div>
