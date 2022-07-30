@@ -1,20 +1,4 @@
 <h1>Create a new planet</h1>
-<!-- USAR SIMPLE FORM
-<%= form_for(@planet) do |f| %>
-  <ul>
-  <li>  <%= f.label :name %>:
-  <%= f.text_field :name %></li>
-  <li>  <%= f.label :galaxy %>:
-  <%= f.text_field :galaxy %></li>
-  <li>  <%= f.label :price %>:
-  <%= f.text_field :price %></li>
-  <li>  <%= f.label :size %>:
-  <%= f.text_field :size %></li>
-  <li>  <%= f.label :temperature %>:
-  <%= f.text_field :temperature %></li>
-  <li>  <%= f.label :pressure %>:
-  <%= f.text_field :pressure %></li>
-  </ul>
-  <%= f.submit %>
-<% end %>
--->
+<div class="container">
+  <%= render 'form', planet: @planet %>
+</div>
