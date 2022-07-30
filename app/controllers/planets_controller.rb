@@ -2,36 +2,35 @@ class PlanetsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @planets = Planet.all.order(created_at: :desc)
-    skip_policy_scope
+    @planets = policy_scope(Planet)
   end
 
   def new
     @planet = Planet.new
-    skip_authorization
+    authorize(@planet)
   end
 
   def create
     @planet = Planet.new(planet_params)
+    authorize(@planet)
     @planet.user = current_user
     @planet.save
-    skip_authorization
     redirect_to planets_path
   end
 
   def show
     @planet = Planet.find(params[:id])
-    skip_authorization
+    authorize(@planet)
   end
 
   def edit
     @planet = Planet.find(params[:id])
-    authorize @planet
+    authorize(@planet)
   end
 
   def update
     @planet = Planet.find(params[:id])
-    authorize @planet
+    authorize(@planet)
     if @planet.update(planet_params)
       redirect_to planet_path(@planet)
     else
@@ -41,7 +40,7 @@ class PlanetsController < ApplicationController
 
   def destroy
     @planet = Planet.find(params[:id])
-    authorize @planet
+    authorize(@planet)
     @planet.destroy
     redirect_to planets_path
   end

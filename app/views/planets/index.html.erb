@@ -2,17 +2,16 @@
 <h1>Planets on Sale</h1>
 
 <div class="cards">
-  <% @planets.each do |planet| %>
+  <% @planets.each_with_index do |planet, index| %>
     <%= link_to planet_path(planet) do %>
       <div class="card-trip">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <img src="https://source.unsplash.com/random/?planet-<%= index %>" alt="">
         <div class="card-trip-infos">
           <div>
             <h2><%= planet.name %></h2>
-            <%# <p>Short description here!</p> %>
           </div>
           <h2 class="card-trip-pricing"><%= planet.price %></h2>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+          <img src="https://source.unsplash.com/random/?human-<%= index %>" class="card-trip-user avatar-bordered" />
         </div>
       </div>
     <% end %>
