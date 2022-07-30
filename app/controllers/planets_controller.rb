@@ -11,6 +11,8 @@ class PlanetsController < ApplicationController
 
   def create
     @planet = Planet.new(planet_params)
+    @planet.save
+    redirect_to planets_path
   end
 
   def show
