@@ -1,17 +1,21 @@
 class OrdersController < ApplicationController
+  def index
+    @orders = policy_scope(Order)
+  end
+
   def new
     @order = Order.new
+    authorize(@order)
     @planet = Planet.find(params[:planet_id])
-    skip_authorization
   end
 
   def create
     @order = Order.new
+    authorize(@order)
     @order.user = current_user
     @planet = Planet.find(params[:planet_id])
     @order.planet = @planet
     if @order.save
-      skip_authorization
       redirect_to planets_path
     else
       render :new
@@ -19,8 +23,8 @@ class OrdersController < ApplicationController
   end
 
   def show
+    authorize(@order)
     @order = Order.find(params[:id])
-    skip_authorization
   end
 
   def order_params
