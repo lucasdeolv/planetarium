@@ -7,3 +7,6 @@
 <li>Pressure: <%=@planet.pressure%> atm</li>
 </ul>
 <%= link_to 'Buy Planet', new_planet_order_path(@planet), class: 'btn btn-primary'  %>
+<h1>Planet: <%= @planet.name %></h1>
+<%= link_to 'Delete Planet',planet_path(@planet), method: :delete, class: 'btn btn-danger' %>
+<%= link_to 'Edit Planet', edit_planet_path(@planet), class: 'btn btn-warning' %>
