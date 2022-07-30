@@ -2,7 +2,7 @@ class PlanetsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @planets = Planet.all
+    @planets = Planet.all.order(created_at: :desc)
     skip_policy_scope
   end
 
@@ -26,10 +26,12 @@ class PlanetsController < ApplicationController
 
   def edit
     @planet = Planet.find(params[:id])
+    authorize @planet
   end
 
   def update
     @planet = Planet.find(params[:id])
+    authorize @planet
     if @planet.update(planet_params)
       redirect_to planet_path(@planet)
     else
