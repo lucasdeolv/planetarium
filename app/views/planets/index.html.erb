@@ -1,9 +1,23 @@
 <div class="container">
+search_tab
+
 <h1>PLANETARIUM</h1>
 <h2><strong>Welcome aboard!</strong></h2>
 <h5><strong>but if you're Galactus... have a good meal :)</strong></h5>
 <h3><strong>Planets on Sale</strong></h3>
 
+
+<h1>Planets on Sale</h1>
+<div class="col-sm-8 offset-sm-2">
+  <%= form_tag planets_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placefolder: "Find a Planet"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
 <div class="cards">
   <% @planets.each_with_index do |planet, index| %>
     <%= link_to planet_path(planet) do %>
