@@ -1,23 +1,26 @@
 <div class="container">
-search_tab
 
 <h1>PLANETARIUM</h1>
 <h2><strong>Welcome aboard!</strong></h2>
 <h5><strong>but if you're Galactus... have a good meal :)</strong></h5>
-<h3><strong>Planets on Sale</strong></h3>
 
 
-<h1>Planets on Sale</h1>
-<div class="col-sm-8 offset-sm-2">
+
+<div class="search-bar col-sm-8 offset-sm-2">
   <%= form_tag planets_path, method: :get do %>
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
-      placefolder: "Find a Planet"
+      placeholder: "Find a Planet"
     %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <div class="teste">
+      <%= submit_tag "Search", class: "btn btn-light "  %>
+    </div>
   <% end %>
 </div>
+
+<h3><strong>Planets on Sale</strong></h3>
+
 <div class="cards">
   <% @planets.each_with_index do |planet, index| %>
     <%= link_to planet_path(planet) do %>
@@ -35,8 +38,9 @@ search_tab
   <% end %>
 </div>
 <br>
-<%= link_to 'Create Planet', new_planet_url, class: 'btn btn-primary'  %>
-
+<div class="create-button">
+  <%= link_to 'Create Planet', new_planet_url, class: 'btn btn-light btn-lg'  %>
+</div>
 <footer>
   <p><strong>Coming Soon...</strong></p>
   <p><strong>Protect Yourself Against Space Invaders!</strong></p>
