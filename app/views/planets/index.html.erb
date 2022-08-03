@@ -1,6 +1,16 @@
 <div class="container">
-<h1>Planets on Sale</h1>
 
+<h1>Planets on Sale</h1>
+<div class="col-sm-8 offset-sm-2">
+  <%= form_tag planets_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placefolder: "Find a Planet"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
 <div class="cards">
   <% @planets.each_with_index do |planet, index| %>
     <%= link_to planet_path(planet) do %>
