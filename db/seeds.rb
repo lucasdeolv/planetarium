@@ -16,8 +16,8 @@ require 'faker'
   )
 
   Planet.create!(
-    name: Faker::Game.title,
-    galaxy: Faker::Music.band,
+    name: Faker::Movies::StarWars.planet,
+    galaxy: Faker::TvShows::Stargate.planet,
     price: rand(50000..1000000),
     size: rand(500..10000),
     temperature: rand(0..500),
