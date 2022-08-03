@@ -15,6 +15,7 @@ class OrdersController < ApplicationController
     @order.user = current_user
     @planet = Planet.find(params[:planet_id])
     @order.planet = @planet
+    @planet.bought!
     if @order.save
       redirect_to planets_path
     else
