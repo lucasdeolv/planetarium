@@ -11,25 +11,63 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
 body {
   background-image: image-url("stars-wpp.jpg");
-  color: white;
+  color: #F3E9DC;
   background-size: cover;
   width: 100vw;
   background-position: center;
   height: 100vh;
+  font-family: 'Roboto', sans-serif;
 }
 
 a {
   text-decoration: none;
+  font-family: 'Roboto', sans-serif;
 }
 
 h1 {
-  color: white;
-  margin-bottom: 40px;
+  color: #F3E9DC;
+  margin-bottom: 100px;
   margin-top: 10px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 70px;
 }
 
 li {
-  color: white;
+  color: #F3E9DC;
+  font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+  font-size: 50px;
+}
+
+h5 {
+  font-size: 12px;
+  margin-left: 150px;
+}
+
+h3 {
+  margin-top: 80px;
+  font-size: 40px;
+}
+
+footer {
+  margin-top: 200px;
+  color: rgb(243, 126, 0);
+  text-align: center;
+  font-size: 18px;
+}
+
+.space-invader {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
 }
