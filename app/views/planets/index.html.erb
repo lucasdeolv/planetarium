@@ -2,7 +2,7 @@
 
 <h1>PLANETARIUM</h1>
 <h2><strong>Welcome aboard!</strong></h2>
-<h5><strong>but if you're Galactus... have a good meal :)</strong></h5>
+<h4><strong>but if you're a <strong>Galactus</strong>... please buy before you eat. Thanks :)</strong></h4>
 
 
 
@@ -14,24 +14,23 @@
       placeholder: "Find a Planet"
     %>
     <div class="teste">
-      <%= submit_tag "Search", class: "btn btn-light "  %>
+      <%= submit_tag "Search", class: "btn btn-light"  %>
     </div>
   <% end %>
 </div>
 
 <h3><strong>Planets on Sale</strong></h3>
 
-<div class="cards">
+<div class="cards" >
   <% @planets.each_with_index do |planet, index| %>
     <%= link_to planet_path(planet) do %>
       <div class="card-trip">
-        <img src="https://source.unsplash.com/random/?planet" alt="">
+        <img src=<%= planet.image ? planet.image : "https://source.unsplash.com/random/?planet" %> alt="">
         <div class="card-trip-infos">
           <div>
-            <h2><%= planet.name %></h2>
+            <h2><%= planet.name.truncate(30) %></h2>
           </div>
-          <h2 class="card-trip-pricing"><%= planet.price %></h2>
-          <img src="https://source.unsplash.com/random/?human-<%= index %>" class="card-trip-user avatar-bordered" />
+          <h2 class="card-trip-pricing">US$ <%= planet.price %></h2>
         </div>
       </div>
     <% end %>

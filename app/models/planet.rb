@@ -4,6 +4,6 @@ class Planet < ApplicationRecord
   validates :name, :galaxy, :price, :size, :temperature, :pressure, presence: true
 
   def bought!
-    self.update_attribute(:bought, true)
+    self.update_attribute :bought, true
   end
 end

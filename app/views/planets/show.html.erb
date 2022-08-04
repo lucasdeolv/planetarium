@@ -1,17 +1,17 @@
 <div class="container-buy">
 <h1><%= @planet.name %></h1>
-<img src="https://source.unsplash.com/random/?planet" style="height: 200px">
+<img src=<%= @planet.image ? @planet.image : "https://source.unsplash.com/random/?planet" %> alt="" style="height: 300px">
   <ul>
-    <li>Galaxy: <%=@planet.galaxy%></li>
-    <li>Price: <%=@planet.price%> dollars</li>
-    <li>Size: <%=@planet.size%> km</li>
-    <li>Temperature: <%=@planet.temperature%> degrees celsius </li>
-    <li>Pressure: <%=@planet.pressure%> atm</li>
+    <li><strong>Galaxy: </strong> <%=@planet.galaxy%></li>
+    <li><strong>Price: </strong>US$ <%=@planet.price%> </li>
+    <li><strong>Size: </strong><%=@planet.size%> km²</li>
+    <li><strong>Temperature: </strong><%=@planet.temperature%> C° </li>
+    <li><strong>Pressure: </strong><%=@planet.pressure%> atm</li>
   </ul>
 
 <% unless policy(@planet).order? %>
   <div class="buy-planet">
-    <%= link_to 'Buy Planet', new_planet_order_path(@planet), class: 'btn btn-primary'  %>
+    <%= link_to 'Buy Planet', new_planet_order_path(@planet), class: 'btn btn-light'  %>
   </div>
 <% end %>
 
