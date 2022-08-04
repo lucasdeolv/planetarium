@@ -1,6 +1,6 @@
 <div class="container-buy">
 <h1><%= @planet.name %></h1>
-<img src="https://source.unsplash.com/random/?planet" class="w-25 h-50">
+<img src="https://source.unsplash.com/random/?planet" style="height: 200px">
   <ul>
     <li>Galaxy: <%=@planet.galaxy%></li>
     <li>Price: <%=@planet.price%> dollars</li>
@@ -9,6 +9,9 @@
     <li>Pressure: <%=@planet.pressure%> atm</li>
   </ul>
 
+<% if policy(@planet).order? %>
+  <%= link_to 'Buy Planet', new_planet_order_path(@planet), class: 'btn btn-primary'  %>
+<% end %>
 <div class="buy-planet">
   <%= link_to 'Buy Planet', new_planet_order_path(@planet), class: 'btn btn-light'  %>
 
