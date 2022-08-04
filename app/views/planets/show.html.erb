@@ -8,13 +8,10 @@
     <li>Temperature: <%=@planet.temperature%> degrees celsius </li>
     <li>Pressure: <%=@planet.pressure%> atm</li>
   </ul>
-
-<% if policy(@planet).order? %>
-  <%= link_to 'Buy Planet', new_planet_order_path(@planet), class: 'btn btn-primary'  %>
-<% end %>
 <div class="buy-planet">
+<% if policy(@planet).order? %>
   <%= link_to 'Buy Planet', new_planet_order_path(@planet), class: 'btn btn-light'  %>
-
+<% end %>
 
 <% if policy(@planet).edit? %>
   <%= link_to 'Edit Planet', edit_planet_path(@planet), class: 'btn btn-warning' %>
