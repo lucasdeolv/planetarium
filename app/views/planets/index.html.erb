@@ -14,18 +14,18 @@
       placeholder: "Find a Planet"
     %>
     <div class="teste">
-      <%= submit_tag "Search", class: "btn btn-light "  %>
+      <%= submit_tag "Search", class: "btn btn-light"  %>
     </div>
   <% end %>
 </div>
 
 <h3><strong>Planets on Sale</strong></h3>
 
-<div class="cards">
+<div class="cards" >
   <% @planets.each_with_index do |planet, index| %>
     <%= link_to planet_path(planet) do %>
       <div class="card-trip">
-        <img src="https://source.unsplash.com/random/?planet-<%= index %>" alt="">
+        <img src="https://source.unsplash.com/random/?planet" alt="">
         <div class="card-trip-infos">
           <div>
             <h2><%= planet.name %></h2>
