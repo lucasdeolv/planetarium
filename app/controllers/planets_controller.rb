@@ -32,7 +32,7 @@ class PlanetsController < ApplicationController
     @planet = Planet.find(params[:id])
     authorize(@planet)
     if @planet.update(planet_params)
-      if params[:planet][:availability]
+      if params[:planet][:bought] == false
         redirect_to planets_path
       else
         redirect_to planet_path(@planet)
@@ -50,6 +50,6 @@ class PlanetsController < ApplicationController
   end
 
   def planet_params
-    params.require(:planet).permit(:name, :galaxy, :price, :size, :temperature, :pressure)
+    params.require(:planet).permit(:name, :galaxy, :price, :size, :temperature, :pressure, :bought)
   end
 end

@@ -15,9 +15,9 @@
   </div>
 <% end %>
 
-<% if policy(@planet).update? %>
+<% if policy(@planet).sell? %>
   <div class="sell-planet">
-    <%= link_to 'Sell Planet', planet_path(@planet, planet: { availability: true }), method: :patch, class: 'btn btn-primary'  %>
+    <%= link_to 'Sell Planet', planet_path(@planet, planet: { bought: false }), method: :patch, class: 'btn btn-primary'  %>
   </div>
 <% end %>
 
