@@ -32,9 +32,13 @@ class PlanetsController < ApplicationController
     @planet = Planet.find(params[:id])
     authorize(@planet)
     if @planet.update(planet_params)
-      redirect_to planet_path(@planet)
+      if params[:planet][:availability]
+        redirect_to planets_path
+      else
+        redirect_to planet_path(@planet)
+      end
     else
-      render 'new'
+      render 'edit'
     end
   end
 
