@@ -1,6 +1,6 @@
 <div class="container-buy">
 <h1><%= @planet.name %></h1>
-<img src="https://source.unsplash.com/random/?planet" style="height: 200px">
+<img src=<%= @planet.image ? @planet.image : "https://source.unsplash.com/random/?planet" %> alt="" style="height: 300px">
   <ul>
     <li><strong>Galaxy: </strong> <%=@planet.galaxy%></li>
     <li><strong>Price: </strong>US$ <%=@planet.price%> </li>
