@@ -21,6 +21,15 @@ case Rails.env
         password: "123123"
       )
 
+  Planet.create!(
+    name: Faker::Movies::StarWars.planet,
+    galaxy: Faker::TvShows::Stargate.planet,
+    price: rand(50000..1000000),
+    size: rand(500..10000),
+    temperature: rand(0..500),
+    pressure: rand(1..100),
+    user: user
+  )
       Planet.create!(
         name: Faker::Game.title,
         galaxy: Faker::Music.band,
