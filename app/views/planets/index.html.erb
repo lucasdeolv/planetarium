@@ -1,5 +1,25 @@
 <div class="container">
-<h1>Planets on Sale</h1>
+
+<h1>PLANETARIUM</h1>
+<h2><strong>Welcome aboard!</strong></h2>
+<h5><strong>but if you're Galactus... have a good meal :)</strong></h5>
+
+
+
+<div class="search-bar col-sm-8 offset-sm-2">
+  <%= form_tag planets_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a Planet"
+    %>
+    <div class="teste">
+      <%= submit_tag "Search", class: "btn btn-light "  %>
+    </div>
+  <% end %>
+</div>
+
+<h3><strong>Planets on Sale</strong></h3>
 
 <div class="cards">
   <% @planets.each_with_index do |planet, index| %>
@@ -18,9 +38,14 @@
   <% end %>
 </div>
 <br>
-<%= link_to 'Create Planet', new_planet_url, class: 'btn btn-primary'  %>
+<div class="create-button">
+  <%= link_to 'Create Planet', new_planet_url, class: 'btn btn-light btn-lg'  %>
+</div>
+<footer>
+  <p><strong>Coming Soon...</strong></p>
+  <p><strong>Protect Yourself Against Space Invaders!</strong></p>
+  <br>
+  <img class="space-invader" src="https://files.tecnoblog.net/wp-content/uploads/2012/06/space-invader.jpg" alt="">
+</footer>
 
-
-
-<%# <a href="..." class="btn btn-danger">Click me</a> %>
 </div>

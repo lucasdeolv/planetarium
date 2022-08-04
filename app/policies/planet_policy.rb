@@ -4,6 +4,7 @@ class PlanetPolicy < ApplicationPolicy
     def resolve
       scope.joins('LEFT JOIN orders ON planets.id = orders.planet_id WHERE orders.planet_id IS NULL').order(created_at: :desc)
       # scope.all.order(created_at: :desc)
+      scope.where.not(bought: true).order(created_at: :desc)
     end
   end
 
