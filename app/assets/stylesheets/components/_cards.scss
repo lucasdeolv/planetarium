@@ -3,10 +3,13 @@
   background: #F3E9DC;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 8px;
+  border: solid;
+  border-color: #F3E9DC;
+  border-width: 3px;
 }
 
 .card-trip > img {
-  height: 200px;
+  height: 175px;
   width: 100%;
   object-fit: cover;
 }
