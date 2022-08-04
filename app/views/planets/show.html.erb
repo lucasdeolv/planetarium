@@ -8,9 +8,17 @@
     <li><strong>Temperature: </strong><%=@planet.temperature%> C° </li>
     <li><strong>Pressure: </strong><%=@planet.pressure%> atm</li>
   </ul>
-<div class="buy-planet">
-<% if policy(@planet).order? %>
-  <%= link_to 'Buy Planet', new_planet_order_path(@planet), class: 'btn btn-light'  %>
+
+<% unless policy(@planet).order? %>
+  <div class="buy-planet">
+    <%= link_to 'Buy Planet', new_planet_order_path(@planet), class: 'btn btn-light'  %>
+  </div>
+<% end %>
+
+<% if policy(@planet).sell? %>
+  <div class="sell-planet">
+    <%= link_to 'Sell Planet', planet_path(@planet, planet: { bought: false }), method: :patch, class: 'btn btn-primary'  %>
+  </div>
 <% end %>
 
 <% if policy(@planet).edit? %>
@@ -18,6 +26,6 @@
 <% end %>
 
 <% if policy(@planet).destroy? %>
-  <%= link_to 'Delete Planet',planet_path(@planet), method: :delete, class: 'btn btn-danger' %>
+  <%= link_to 'Delete Planet', planet_path(@planet), method: :delete, class: 'btn btn-danger' %>
 <% end %>
 </div>
