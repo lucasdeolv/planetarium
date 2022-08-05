@@ -22,6 +22,7 @@
 <h3><strong>Planets on Sale</strong></h3>
 
 <div class="cards">
+<% if @planets.present? %>
   <% @planets.each_with_index do |planet, index| %>
     <%= link_to planet_path(planet) do %>
       <div class="card-trip">
@@ -36,6 +37,9 @@
       </div>
     <% end %>
   <% end %>
+  <% else %>
+    <h3> No planet found :( </h3>
+  <% end %>
 </div>
 <br>
 <div class="create-button">
@@ -49,3 +53,14 @@
 </footer>
 
 </div>
+
+  <div id="planets">
+  <%#@results.each do |result| %>
+  <h4><%#=result.searchable.name%> </h4>
+  <p><%#=result.searchable.galaxy%></p>
+  <p><%#= result.searchable.price%></p>
+  <p><%#= result.searchable.size%></p>
+  <p><%#= result.searchable.temperature%></p>
+  <p><%#= result.searchable.pressure%></p>
+  <%# end %>
+  </div>
