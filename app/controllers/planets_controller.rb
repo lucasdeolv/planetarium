@@ -36,6 +36,7 @@ class PlanetsController < ApplicationController
   def update
     @planet = Planet.find(params[:id])
     authorize(@planet)
+    params[:planet][:bought] = false if params[:planet][:bought] == "false"
     if @planet.update(planet_params)
       if params[:planet][:bought] == false
         redirect_to planets_path
