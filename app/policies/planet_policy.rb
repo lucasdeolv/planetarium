@@ -15,14 +15,22 @@ class PlanetPolicy < ApplicationPolicy
   end
 
   def edit?
-    record.user == user
+    record.user == user || user.orders.where(planet_id: record.id).exists?
   end
 
   def update?
-    record.user == user
+    record.user == user || user.orders.where(planet_id: record.id).exists?
   end
 
   def destroy?
     record.user == user
+  end
+
+  def order?
+    user.orders.where(planet_id: record.id).exists?
+  end
+
+  def sell?
+    Order.all.where(planet_id: record.id).last&.user == user && record.bought == true
   end
 end

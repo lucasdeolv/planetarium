@@ -15,6 +15,8 @@
 
 body {
   background-image: image-url("night-sky.jpg");
+  overflow-x: hidden;
+  // overflow: auto;
   color: #F3E9DC;
   background-size: cover;
   width: 100vw;
@@ -46,10 +48,10 @@ h2 {
   font-size: 50px;
 }
 
-h5 {
-  font-size: 12px;
-  margin-left: 150px;
-  margin-bottom: 80px;
+h4 {
+  font-size: 20px;
+  margin-left: 50px;
+  margin-bottom: 100px;
 }
 
 h3 {

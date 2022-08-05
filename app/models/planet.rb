@@ -12,6 +12,6 @@ class Planet < ApplicationRecord
       tsearch: { prefix: true }
     }
   def bought!
-    self.update_attribute(:bought, true)
+    self.update_attribute :bought, true
   end
 end
