@@ -3,7 +3,7 @@
   <% @orders.each_with_index do |order, index| %>
     <%= link_to planet_path(order.planet) do %>
       <div class="card-trip">
-        <img src="https://source.unsplash.com/random/?planet" alt="">
+        <img src=<%= order.planet.image ? order.planet.image : "https://source.unsplash.com/random/?planet" %> alt="">
         <div class="card-trip-infos">
           <div>
             <h2><%= order.planet.name %></h2>
