@@ -1,10 +1,18 @@
-<%= simple_form_for(planet) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :galaxy %>
-  <%= f.input :price %>
-  <%= f.input :size  %>
-  <%= f.input :temperature %>
-  <%= f.input :pressure %>
-  <%= f.input :image %>
-  <%= f.submit class: "btn btn-light" %>
+<% if params[:sell] == "true" %>
+  <%= simple_form_for(planet) do |f| %>
+    <%= f.input :price %>
+    <%= f.input :bought, input_html: { value: false }, as: :hidden %>
+    <%= f.submit class: "btn btn-light" %>
+  <% end %>
+<% else %>
+  <%= simple_form_for(planet) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :galaxy %>
+    <%= f.input :price %>
+    <%= f.input :size  %>
+    <%= f.input :temperature %>
+    <%= f.input :pressure %>
+    <%= f.input :image %>
+    <%= f.submit class: "btn btn-light" %>
+  <% end %>
 <% end %>
