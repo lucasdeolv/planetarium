@@ -1,13 +1,15 @@
 <div class="container-buy">
 <h1><%= @planet.name %></h1>
 <img src=<%= @planet.image ? @planet.image : "https://source.unsplash.com/random/?planet" %> alt="" style="height: 300px">
+<div class="the-list">
   <ul>
-    <li><strong>Galaxy: </strong> <%=@planet.galaxy%></li>
-    <li><strong>Price: </strong>US$ <%=@planet.price%> </li>
-    <li><strong>Size: </strong><%=@planet.size%> km²</li>
-    <li><strong>Temperature: </strong><%=@planet.temperature%> C° </li>
-    <li><strong>Pressure: </strong><%=@planet.pressure%> atm</li>
+    <li><strong>Galaxy: <%=@planet.galaxy%></strong></li>
+    <li><strong>Price: US$ <%=@planet.price%></strong> </li>
+    <li><strong>Size: <%=@planet.size%> km²</strong></li>
+    <li><strong>Temperature: <%=@planet.temperature%> °C </strong></li>
+    <li><strong>Pressure: <%=@planet.pressure%> atm</strong></li>
   </ul>
+</div>
 
 <% unless policy(@planet).order? %>
   <div class="buy-planet">
@@ -17,15 +19,16 @@
 
 <% if policy(@planet).sell? %>
   <div class="sell-planet">
-    <%= link_to 'Sell Planet', edit_planet_path(@planet, sell: true), class: 'btn btn-primary'  %>
-  </div>
+    <%= link_to 'Sell Planet', edit_planet_path(@planet, sell: true), class: 'btn btn-light'  %>
+
 <% end %>
 
 <% if policy(@planet).edit? %>
-  <%= link_to 'Edit Planet', edit_planet_path(@planet), class: 'btn btn-warning' %>
+  <%= link_to 'Edit Planet', edit_planet_path(@planet), class: 'btn btn-light' %>
 <% end %>
 
  <% if policy(@planet).destroy? %>
   <%= link_to 'Delete Planet', planet_path(@planet), method: :delete, class: 'btn btn-danger' %>
 <% end %>
+</div>
 </div>
