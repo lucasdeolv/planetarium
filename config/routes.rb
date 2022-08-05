@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get "orders", to: "orders#index", as: :orders
   root to: 'planets#index'
   resources :articles, except: :index
+  resources :about, only: :index
 end

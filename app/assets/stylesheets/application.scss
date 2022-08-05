@@ -14,7 +14,7 @@
 
 
 body {
-  background-image: image-url("night-sky.jpg");
+  background-image: image-url("new_background.jpg");
   overflow-x: hidden;
   // overflow: auto;
   color: #F3E9DC;
@@ -37,6 +37,7 @@ h1 {
   text-align: center;
   font-family: 'Raleway', sans-serif;
   font-size: 70px;
+  text-shadow: 2px rgb(0, 0, 0);
 }
 
 li {
@@ -46,17 +47,20 @@ li {
 
 h2 {
   font-size: 50px;
+  text-shadow: 2px rgb(0, 0, 0);
 }
 
 h4 {
   font-size: 20px;
   margin-left: 50px;
   margin-bottom: 100px;
+  text-shadow: 2px rgb(0, 0, 0);
 }
 
 h3 {
   margin-top: 80px;
   font-size: 40px;
+  text-shadow: 2px rgb(0, 0, 0);
 }
 
 footer {
@@ -107,4 +111,22 @@ footer {
 ul {
   list-style-type: none;
   margin-top: 30px;
+}
+
+.galaxy {
+  text-align: center;
+  color: yellow;
+  background-color: black;
+}
+
+.about {
+  width: 500px;
+  margin: auto;
+  text-align: justify;
+  font-size: 24px;
+  background-color: black;
+}
+
+.abouth1 {
+  text-shadow: 2px rgb(0, 0, 0);
 }
