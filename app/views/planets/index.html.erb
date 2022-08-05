@@ -21,7 +21,8 @@
 
 <h3><strong>Planets on Sale</strong></h3>
 
-<div class="cards" >
+<div class="cards">
+<% if @planets.present? %>
   <% @planets.each_with_index do |planet, index| %>
     <%= link_to planet_path(planet) do %>
       <div class="card-trip">
@@ -34,6 +35,9 @@
         </div>
       </div>
     <% end %>
+  <% end %>
+  <% else %>
+    <h3> No planet found :( </h3>
   <% end %>
 </div>
 <br>

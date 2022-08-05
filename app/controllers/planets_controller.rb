@@ -1,8 +1,13 @@
 class PlanetsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :pundit_policy_scoped?, only: :index
 
   def index
-    @planets = policy_scope(Planet)
+    if params[:query]
+      @planets = Planet.global_search(params[:query])
+    else
+      @planets = policy_scope(Planet)
+    end
   end
 
   def new
@@ -51,5 +56,11 @@ class PlanetsController < ApplicationController
 
   def planet_params
     params.require(:planet).permit(:name, :galaxy, :price, :size, :temperature, :pressure, :image, :bought)
+  end
+
+  private
+
+  def pundit_policy_scoped?
+    true
   end
 end
