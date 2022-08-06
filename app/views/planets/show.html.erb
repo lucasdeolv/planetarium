@@ -8,6 +8,10 @@
     <li><strong>Size: <%=@planet.size%> km²</strong></li>
     <li><strong>Temperature: <%=@planet.temperature%> °C </strong></li>
     <li><strong>Pressure: <%=@planet.pressure%> atm</strong></li>
+    <% if @planet.description.present? %>
+     <li>Description: <%=@planet.description%></li>
+    <% end %>
+
   </ul>
 </div>
 
